@@ -1,0 +1,13 @@
+---
+
+---
+
+<span id="year"></span>
+<script is:inline>
+  function yearSnap() {
+    const DT = new Date();
+    var dateStamp = DT.toLocaleDateString();
+    document.getElementById("year").innerHTML = DT.getFullYear();
+  }
+  yearSnap();
+</script>

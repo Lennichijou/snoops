@@ -1,0 +1,26 @@
+@import "@fortawesome/fontawesome-free/css/all.css";
+@import "tailwindcss";
+@import "@fontsource-variable/geist";
+@import "devicon/devicon.min.css";
+
+html {
+  min-width: 320px;
+  scroll-behavior: smooth;
+  font-family: 'Geist Variable';
+}
+
+a {
+  color: var(--color-zinc-300);
+}
+
+a:hover, a:focus {
+  color: var(--color-zinc-900);
+  background-color: var(--color-zinc-300);
+}
+
+body {
+  height: 100%;
+  font-weight: 400;
+  font-size: normal;
+}
+
