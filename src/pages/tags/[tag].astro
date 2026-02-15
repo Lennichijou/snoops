@@ -5,8 +5,7 @@ import Layout from '../../layouts/Layout.astro';
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
   const tags = new Set();
-  
-  // Собираем все уникальные теги
+
   posts.forEach((post) => {
     if (post.data.tags) {
       post.data.tags.forEach((tag) => tags.add(tag));

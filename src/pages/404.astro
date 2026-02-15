@@ -1,0 +1,27 @@
+---
+import "../styles/global.css"
+const { title } = Astro.props;
+---
+<!doctype html>
+<html lang="ru" class="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body class="min-h-screen bg-zinc-800 text-zinc-100 flex items-center justify-center p-5">
+    <main class="max-w-2xl w-full">
+        <div class="p-8 text-center">
+            <h1 class="opacity-50 text-7xl md:text-8xl font-bold mb-6">404</h1>
+            <p class="text-md mb-6">
+                Кажется, вы зашли куда-то не туда.<br>
+                <a href="/">
+                Можно вернуться на главную страницу.
+                </a>
+            </p>
+            
+        </div>
+    </main>
+</body>
+</html>

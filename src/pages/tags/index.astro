@@ -5,7 +5,6 @@ import Layout from '../../layouts/Layout.astro';
 const posts = await getCollection('blog');
 const tagCounts = {};
 
-// Подсчитываем количество постов для каждого тега
 posts.forEach((post) => {
   if (post.data.tags) {
     post.data.tags.forEach((tag) => {
@@ -14,7 +13,6 @@ posts.forEach((post) => {
   }
 });
 
-// Сортируем теги по количеству постов
 const sortedTags = Object.entries(tagCounts)
   .sort(([, a], [, b]) => b - a);
 ---

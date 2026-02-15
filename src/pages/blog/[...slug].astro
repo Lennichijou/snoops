@@ -28,6 +28,23 @@ const { Content } = await post.render();
       </span>
     )}
     </p>
-    <Content class="my-4" />
+    <article 
+      class="prose
+            text-justify
+            text-zinc-100
+            prose-blockquote:text-zinc-100
+            prose-blockquote:opacity-75 
+            prose-strong:text-zinc-100 
+            prose-headings:text-zinc-100 
+            prose-pre:text-zinc-100
+            prose-pre:border-zinc-100
+            prose-pre:border-2
+            prose-code:text-zinc-100
+            prose-b:text-zinc-100
+            prose-a:no-underline
+            "
+    >
+      <Content/>
+    </article>
   </div>
 </Layout>

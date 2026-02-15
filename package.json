@@ -10,11 +10,13 @@
   },
   "dependencies": {
     "@fontsource-variable/geist": "^5.2.8",
+    "@fontsource-variable/geist-mono": "^5.2.7",
     "@fortawesome/fontawesome-free": "^7.1.0",
     "astro": "^5.17.1",
     "devicon": "^2.17.0"
   },
   "devDependencies": {
+    "@tailwindcss/typography": "^0.5.19",
     "@tailwindcss/vite": "^4.1.18",
     "tailwindcss": "^4.1.18"
   }
