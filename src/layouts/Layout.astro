@@ -12,12 +12,13 @@ const { title } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body class="grid transition bg-zinc-800 text-zinc-100 right-0 top-0 p-5 mx-5 my-5 space-x-2 space-y-2">
-    <main class="place-self-center container md:w-2xl sm:w-screen">
+  <body class="grid transition-discrete bg-zinc-800 text-zinc-100 right-0 top-0 p-5 mx-5 my-5 space-x-2 space-y-2">
+    <main class="place-self-center container md:w-3xl sm:w-screen">
       <Navigation />
       <slot />
       <p class="m-4 opacity-50 text-sm">
-        Копирайт гыгыгы <Year /><br /> Made with <a href="https://astro.build/"><i class="devicon-astro-plain"></i> Astro</a> + <a href="https://tailwindcss.com"><i class="devicon-tailwindcss-plain"></i> Tailwind</a>
+        Копирайт гыгыгы <Year /><br />
+        Made with <a href="https://astro.build/" target="_blank"><i class="devicon-astro-plain"></i> Astro</a> + <a href="https://tailwindcss.com" target="_blank"><i class="devicon-tailwindcss-plain"></i> Tailwind</a> + <i class="fa-brands fa-markdown"></i> Markdown
       </p>
     </main>
   </body>

@@ -16,9 +16,10 @@ a {
 }
 
 a:hover, a:focus {
-  color: var(--color-zinc-900);
+  color: var(--color-zinc-800);
   background-color: var(--color-zinc-300);
 }
+
 
 @layer components {
   .footnotes h2 {

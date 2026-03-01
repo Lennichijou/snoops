@@ -4,6 +4,25 @@ import Layout from "../layouts/Layout.astro"
 
 <Layout title="Главная">
 <div class="p-4">
-  <h1 class="font-bold my-4 text-2xl"># Ну, привет, что-то хотел?</h1>
+  <div class="container p-4 bg-zinc-100 text-zinc-900 a:bg-zinc-100 a:text-zinc-900 -rotate-1 hover:rotate-0 transition-transform shadow-2xs">
+    <h1 id="hello" class="font-bold text-2xl">привет.</h1>
+    <p>Моя звать Леонид, я есть погромист, студентота, жертва научной фантастики. А это моя уютнай уголок. Нраица.</p>
+      <br>
+      <p><i class="fa-solid fa-cake-candles"></i> 13 января</p>
+      <p><i class="fa-solid fa-location-dot"></i> Москва, РФ</p>
+      <p><i class="fa-solid fa-graduation-cap"></i> НИУ МИЭТ '26</p>
+      <p><i class="fa-solid fa-briefcase"></i> НИЛ САПРМ (Институт ПИШ НИУ МИЭТ)</p>
+  </div>
+  <br>
+  <p><a href="https://github.com/Lennichijou" target="_blank"><i class="fa-brands fa-github"></i> /Lennichijou</a></p>
+  <p><a href="https://t.me/Lenhardt" target="_blank"><i class="fa-brands fa-telegram"></i> /Lenhardt</a></p>
 </div>
 </Layout>
+<script>
+  const hellos = ['привет.', 'hello.', 'шалом.', '[вставить приветствие здесь]'];
+  let index = 0;
+  document.querySelector('#hello')?.addEventListener('click', () => {
+    index = (index + 1) % hellos.length;
+    document.querySelector('#hello')!.textContent = hellos[index];
+  });
+</script>

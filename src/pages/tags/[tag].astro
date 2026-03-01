@@ -23,7 +23,7 @@ const { tag, posts } = Astro.props;
 
 <Layout title={`Тег: ${tag}`}>
   <div class="p-4 max-w-4xl mx-auto">
-    <h1 class="font-bold my-4 text-2xl"># Тег: {tag}</h1>
+    <h1 class="font-bold my-4 text-2xl">Тег: {tag}</h1>
     <ul class="list-disc">
       {posts.map((post) => (
         <li>

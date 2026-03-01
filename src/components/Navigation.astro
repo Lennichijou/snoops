@@ -1,10 +1,58 @@
 ---
+const { links = [
+  { href: '/', label: '/главная' },
+  { href: '/blog', label: '/блог' },
+  { href: '/tags', label: '/теги' },
+  { href: '/etc', label: '/прочее' },
+] } = Astro.props;
 ---
-<div class="p-4">
-<nav class="flex gap-5 sm:flex-row flex-col">
-    <a href="/">/главная</a>
-    <a href="/blog">/блог</a>
-    <a href="/tags">/теги</a>
-    <a href="/about">/абаут</a>
+
+<nav class="">
+  <div class="container mx-auto px-4">
+    <div class="flex justify-between items-center h-16">
+      <button class="md:hidden text-2xl focus:outline-none" id="menu-btn" aria-label="Меню">
+        <i class="fas fa-bars" id="menu-icon"></i>
+      </button>
+      <ul class="hidden md:flex space-x-6">
+        {links.map((link) => (
+          <li>
+            <a href={link.href}>
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <div class="hidden md:hidden pb-4" id="mobile-menu">
+      <ul class="flex flex-col space-y-2">
+        {links.map((link) => (
+          <li>
+            <a href={link.href} class="block py-2">
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
 </nav>
-</div>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIcon = document.getElementById('menu-icon');
+
+    if (menuBtn && mobileMenu && menuIcon) {
+      menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+        if (mobileMenu.classList.contains('hidden')) {
+          menuIcon.className = 'fas fa-bars';
+        } else {
+          menuIcon.className = 'fas fa-times';
+        }
+      });
+    }
+  });
+</script>

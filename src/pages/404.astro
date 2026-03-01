@@ -12,14 +12,17 @@ const { title } = Astro.props;
   </head>
   <body class="min-h-screen bg-zinc-800 text-zinc-100 flex items-center justify-center p-5">
     <main class="max-w-2xl w-full">
-        <div class="p-8 text-center">
-            <h1 class="opacity-50 text-7xl md:text-8xl font-bold mb-6">404</h1>
-            <p class="text-md mb-6">
-                Кажется, вы зашли куда-то не туда.<br>
-                <a href="/">
+        <div class="p-8 m-8 text-center">
+            <div class="container p-4 bg-zinc-100 text-zinc-900 -rotate-1 hover:rotate-0 transition-transform shadow-2xs">
+    <h1 id="hello" class="font-bold text-7xl md:text-8xl">404</h1>
+<p class="text-md mb-6">
+                Упс, вы зашли куда-то не туда.<br>
+                
+            </p>
+  </div><br>
+            <a href="/" >
                 Можно вернуться на главную страницу.
                 </a>
-            </p>
             
         </div>
     </main>
