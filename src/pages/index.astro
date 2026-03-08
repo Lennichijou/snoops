@@ -5,24 +5,28 @@ import Layout from "../layouts/Layout.astro"
 <Layout title="Главная">
 <div class="p-4">
   <div class="container p-4 bg-zinc-100 text-zinc-900 a:bg-zinc-100 a:text-zinc-900 -rotate-1 hover:rotate-0 transition-transform shadow-2xs">
-    <h1 id="hello" class="font-bold text-2xl">привет.</h1>
-    <p>Моя звать Леонид, я есть погромист, студентота, жертва научной фантастики. А это моя уютнай уголок. Нраица.</p>
-      <br>
-      <p><i class="fa-solid fa-cake-candles"></i> 13 января</p>
-      <p><i class="fa-solid fa-location-dot"></i> Москва, РФ</p>
-      <p><i class="fa-solid fa-graduation-cap"></i> НИУ МИЭТ '26</p>
-      <p><i class="fa-solid fa-briefcase"></i> НИЛ САПРМ (Институт ПИШ НИУ МИЭТ)</p>
+    <h1 id="hello" class="font-bold text-2xl">Вставить приветствие здесь.</h1>
   </div>
   <br>
-  <p><a href="https://github.com/Lennichijou" target="_blank"><i class="fa-brands fa-github"></i> /Lennichijou</a></p>
-  <p><a href="https://t.me/Lenhardt" target="_blank"><i class="fa-brands fa-telegram"></i> /Lenhardt</a></p>
+
+  
+  <article class="prose mb-0 mt-0 prose-base
+            text-zinc-100
+            prose-blockquote:text-zinc-100
+            prose-blockquote:opacity-75 
+            prose-strong:text-zinc-100 
+            prose-headings:text-zinc-100 
+            prose-pre:text-zinc-100
+            prose-pre:border-zinc-100
+            prose-pre:border-2
+            prose-code:text-zinc-100
+            prose-b:text-zinc-100
+            prose-a:no-underline">
+  <h3>Где-то мне ещё надо находиться</h3>
+  <ul class="list-none">
+    <li><a href="https://github.com/Lennichijou" target="_blank"><i class="fa-brands fa-github"></i> /Lennichijou</a></li>
+    <li><a href="https://t.me/Lenhardt" target="_blank"><i class="fa-brands fa-telegram"></i> /Lenhardt</a></li>
+  </ul>
+  </article>
 </div>
 </Layout>
-<script>
-  const hellos = ['привет.', 'hello.', 'шалом.', '[вставить приветствие здесь]'];
-  let index = 0;
-  document.querySelector('#hello')?.addEventListener('click', () => {
-    index = (index + 1) % hellos.length;
-    document.querySelector('#hello')!.textContent = hellos[index];
-  });
-</script>
