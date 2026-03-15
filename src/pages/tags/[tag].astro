@@ -27,7 +27,7 @@ const { tag, posts } = Astro.props;
     <ul class="list-disc">
       {posts.map((post) => (
         <li>
-          <a href={`/blog/${post.slug}`} class="block">
+          <a href={`/blog/${post.id}`} class="block">
             {post.data.title}
             <span class="opacity-50 text-sm">{post.data.pubDate.toLocaleDateString()}</span>
           </a>

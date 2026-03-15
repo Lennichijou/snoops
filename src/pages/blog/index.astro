@@ -12,7 +12,7 @@ const sortedPosts = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDa
   <ul class="list-disc">
     {sortedPosts.map((post) => (
       <li>
-        <a href={`/blog/${post.slug}`} class="block">
+        <a href={`/blog/${post.id}`} class="block">
           {post.data.title} <span class="opacity-50 text-sm">{post.data.pubDate.toLocaleDateString()}</span>
         </a>
       </li>
