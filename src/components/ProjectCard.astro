@@ -1,0 +1,10 @@
+---
+const { name, link, desc, stack } = Astro.props;
+---
+<div>
+    <a href=`${link}` target="_blank" class="text-xl font-bold">
+        {name}
+    </a><br>
+    <span>{desc}</span><br>
+    <small class="opacity-75">{stack}</small>
+</div>
