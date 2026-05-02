@@ -1,0 +1,36 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+const projects = [
+    {
+        name: 'borqbot',
+        desciption: 'Проект телеграм-бота, выдающего цитату/комикс из Цитатника Рунета.',
+        stack: ['Python','aiogram','aiosqlite','BeautifulSoup4'],
+        link: 'https://github.com/Lennichijou/borqbot',
+    },
+    
+]
+---
+<Layout title="Прочее">
+    <div class="p-4">
+    <h1 class="font-bold my-4 text-2xl">Проекты</h1>
+    <article class="prose mb-0
+            text-zinc-100
+            prose-blockquote:text-zinc-100
+            prose-blockquote:opacity-75 
+            prose-strong:text-zinc-100 
+            prose-headings:text-zinc-100 
+            prose-pre:text-zinc-100
+            prose-pre:border-zinc-100
+            prose-pre:border-2
+            prose-code:text-zinc-100
+            prose-b:text-zinc-100
+            prose-a:no-underline">
+    {
+     projects.map((project) =>
+    (<ProjectCard name={project.name} link={project.link} desc={project.desciption} stack={project.stack} />))   
+    }
+    </article>
+    </div>
+
+</Layout>
