@@ -1,10 +1,20 @@
 ---
 const { name, link, desc, stack } = Astro.props;
 ---
-<div class="py-4">
-    <a href=`${link ?? '#'}` target=`_blank` class="text-xl font-bold">
-    {name}
-    </a><br>
+<a href=`${link ?? '#'}` target=`_blank`
+class=" ">
+<div class="p-4 my-4 rounded-3xl border-2 hover:bg-zinc-300 hover:text-zinc-800 transition">
+    <span class="text-xl font-bold">{name}</span>
+    <br>
     <span>{desc}</span><br>
-    {stack.map((tech) => (<small class="opacity-75 px-2 rounded-2xl mx-0.5 bg-zinc-700">{tech}</small>)) }
+    <ul class="space-1 flex flex-row flex-wrap list-none container text-zinc-300">
+    {stack.map((tech) => 
+    (<li>
+        <small class="opacity-80 px-2 rounded-2xl mx-0.5 space-x-2 bg-zinc-700">
+            {tech}
+        </small>
+    </li>
+    )) }
+    </ul>    
 </div>
+</a>

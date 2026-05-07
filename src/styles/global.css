@@ -11,16 +11,6 @@ html {
   font-family: 'Geist Variable';
 }
 
-a {
-  color: var(--color-zinc-300);
-}
-
-a:hover, a:focus {
-  color: var(--color-zinc-800);
-  background-color: var(--color-zinc-300);
-}
-
-
 @layer components {
   .footnotes h2 {
     display: none;

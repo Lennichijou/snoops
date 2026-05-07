@@ -15,7 +15,7 @@ const { links = [
       <ul class="hidden md:flex space-x-6">
         {links.map((link) => (
           <li>
-            <a href={link.href}>
+            <a href={link.href} class="hover:bg-zinc-300 focus:bg-zinc-300 hover:text-zinc-800 focus:text-zinc-800  transition">
               {link.label}
             </a>
           </li>
