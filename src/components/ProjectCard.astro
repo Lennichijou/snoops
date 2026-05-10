@@ -4,7 +4,7 @@ const { name, link, desc, stack } = Astro.props;
 <a href=`${link ?? '#'}` target=`_blank`
 class=" ">
 <div class="p-4 my-4 rounded-3xl border-2 hover:bg-zinc-300 hover:text-zinc-800 transition">
-    <span class="text-xl font-bold">{name}</span>
+    <span class="text-xl font-bold">{name} <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
     <br>
     <span>{desc}</span><br>
     <ul class="space-1 flex flex-row flex-wrap list-none container text-zinc-300">
