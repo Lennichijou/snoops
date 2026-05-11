@@ -1,0 +1,7 @@
+---
+type Props = { href: string, src: string, name: string};
+const {href, src, name} = Astro.props;
+---
+<a href={href} target="_blank">
+<img src={src} alt={name} width="88" height="31" class="w-22 h-7.75" />
+</a>
