@@ -38,6 +38,11 @@ html {
   }
 }
 
+a {
+  @apply transition underline underline-offset-2 opacity-75 hover:opacity-100 hover:underline-offset-4;
+}
+
+
 body {
   height: 100%;
   font-weight: 400;
