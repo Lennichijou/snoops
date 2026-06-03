@@ -1,4 +1,4 @@
-@import "@fortawesome/fontawesome-free/css/all.css";
+@import "simple-icons-font/font/simple-icons.min.css";
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 @import "@fontsource-variable/geist";
@@ -39,7 +39,7 @@ html {
 }
 
 a {
-  @apply transition underline underline-offset-2 opacity-75 hover:opacity-100 hover:underline-offset-4;
+  @apply transition underline underline-offset-4 opacity-75 hover:opacity-100 hover:underline-offset-6;
 }
 
 
