@@ -39,7 +39,7 @@ html {
 }
 
 a {
-  @apply transition underline underline-offset-4 opacity-75 hover:opacity-100 hover:underline-offset-6;
+  @apply transition underline underline-offset-4 opacity-75 hover:opacity-100;
 }
 
 
