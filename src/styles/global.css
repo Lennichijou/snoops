@@ -38,10 +38,20 @@ html {
   }
 }
 
-a {
+a, .prose-a {
   @apply transition underline underline-offset-4 opacity-75 hover:opacity-100;
 }
 
+.markdown {
+  @apply prose mb-0 mt-0 prose-base text-zinc-100 text-base/6
+            prose-blockquote:text-zinc-100
+            prose-blockquote:opacity-75 
+            prose-strong:text-zinc-100 
+            prose-pre:border-zinc-100
+            prose-pre:border-2
+            prose-code:text-zinc-100
+            prose-a:text-zinc-300;
+}
 
 body {
   height: 100%;

@@ -1,0 +1,17 @@
+---
+---
+<span id="age"></span>
+<script is:inline>
+function getAge(birthDate) {
+  const today = new Date();
+  let age = today.getFullYear() - birthDate.getFullYear();
+  const m = today.getMonth() - birthDate.getMonth();
+  if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+    age--;
+  }
+  return age;
+}
+const birth = new Date(2004, 0, 13);
+const age = getAge(birth);
+document.getElementById('age').textContent = `${age}`;
+</script>
