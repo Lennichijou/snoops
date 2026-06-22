@@ -50,7 +50,7 @@ a, .prose-a {
             prose-pre:border-zinc-100
             prose-pre:border-2
             prose-code:text-zinc-100
-            prose-a:text-zinc-300;
+            prose-a:text-zinc-100;
 }
 
 body {
