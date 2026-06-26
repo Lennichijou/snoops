@@ -5,52 +5,45 @@
 @import "@fontsource-variable/geist-mono";
 @import "devicon/devicon.min.css";
 
+@theme {
+  --animate-fade-up: fade-up 0.4s ease-out;
+}
+
+@keyframes fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@layer utilities {
+  .animate-fade-up {
+    animation: var(--animate-fade-up);
+  }
+}
+
 html {
   min-width: 320px;
   scroll-behavior: smooth;
   font-family: 'Geist Variable';
+  @apply text-zinc-800 bg-zinc-100;
 }
 
-@layer components {
-  .footnotes h2 {
-    display: none;
-  }
-
-  .footnotes {
-    position: relative;
-    margin-top: 2rem;
-  }
-
-  .footnotes::before {
-    content: '';
-    display: block;
-    width: 100%;
-    height: 1px;
-    background-color: #e5e7eb;
-    margin-bottom: 1.5rem;
-  }
-
-  .footnotes::before {
-    @apply border-t border-gray-200 w-full;
-    content: '';
-    display: block;
-    margin-bottom: 1.5rem;
-  }
+body {
+  @apply grid transition-discrete 
+   right-0 top-0 p-5 mx-5 my-5 space-x-2 space-y-2;
 }
 
-a, .prose-a {
-  @apply transition underline underline-offset-4 opacity-75 hover:opacity-100;
+a {
+  @apply transition underline underline-offset-4 hover:opacity-100 text-blue-600 hover:text-red-600 focus:text-red-600;
 }
 
 .markdown {
-  @apply prose mb-0 mt-0 prose-base text-zinc-100 text-base/6
-            prose-blockquote:text-zinc-100
-            prose-blockquote:opacity-75 
-            prose-strong:text-zinc-100 
-            prose-pre:border-zinc-100
-            prose-pre:border-2
-            prose-code:text-zinc-100
-            prose-a:text-zinc-100;
+  @apply mb-0 mt-0 ;
 }
 
 body {

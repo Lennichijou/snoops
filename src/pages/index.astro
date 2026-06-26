@@ -5,8 +5,8 @@ import Layout from "../layouts/Layout.astro"
 ---
 
 <Layout title="Главная">
-<div class="p-4">
-  <div class="flex container p-4 bg-zinc-100 text-zinc-900 a:bg-zinc-100 a:text-zinc-900 -rotate-1 hover:rotate-0 transition-transform shadow-2xs flex-col md:flex-row">
+<div class="pt-4 px-4">
+  <div class="flex container p-4 mb-4 bg-zinc-300 text-zinc-800 -rotate-1 hover:rotate-0 transition-transform shadow-md flex-col md:flex-row">
     <h1 id="hello" class="font-bold text-2xl">Вставить приветствие здесь.</h1>
   </div>
 
@@ -14,8 +14,14 @@ import Layout from "../layouts/Layout.astro"
 <p>Меня зовут <b>Леонид</b>, <Age /> years old. Инжир-погромист, чинит примус, сочиняет гиперболоиды, питается кофе и печеньками. Характер скрытный. Не женат.</p>
 <p>Где-то меня можно найти:</p>
 <p>
-<a href="https://github.com/Lennichijou" target="_blank" class=""><i class="si-fit si-github"></i> GitHub</a><br>
-<a href="https://t.me/Lenhardt" target="_blank" class=""><i class="si-fit si-telegram"></i> Telegram</a>
+<a href="https://github.com/Lennichijou" target="_blank" class="">
+  <i class="si-fit si-github"></i> GitHub
+</a>
+</p>
+<p>
+<a href="https://t.me/Lenhardt" target="_blank" class="">
+  <i class="si-fit si-telegram"></i> Telegram
+</a>
 </p>
 </article>
 
