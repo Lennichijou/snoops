@@ -1,4 +1,4 @@
-your-domain.com {
+lenny.wtf {
     root * /usr/share/caddy
     file_server
 

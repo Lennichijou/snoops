@@ -1,5 +1,5 @@
 ---
-import pkg from '../../package.json' assert { type: 'json' };
+import pkg from '../../package.json' with { type: 'json' };
 import Year from "../components/Year.astro";
 const projectVersion: string = pkg.version || 'unknown';
 const astroVersion: string = pkg.dependencies?.["astro"] || 'unknown';
