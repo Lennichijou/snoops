@@ -1,19 +1,26 @@
 ---
 import pkg from '../../package.json' assert { type: 'json' };
 import Year from "../components/Year.astro";
-const projectVersion = pkg.version || 'unknown';
-const astroVersion = pkg.dependencies?.astro || pkg.devDependencies?.astro || 'unknown';
-const tailwindVersion = pkg.dependencies?.tailwindcss || pkg.devDependencies?.tailwindcss || 'unknown';
+const projectVersion: string = pkg.version || 'unknown';
+const astroVersion: string = pkg.dependencies?.["astro"] || 'unknown';
+const tailwindVersion: string = pkg.devDependencies?.["@tailwindcss/vite"] || 'unknown';
 const getCommitInfo = async () => {
     const childProcess = await import('node:child_process');
     const hash = childProcess.execSync('git rev-parse --short HEAD').toString().trim();
     return hash;
 };
 ---
-<p class="m-4 opacity-75 text-sm">
-        v{projectVersion}, commit {getCommitInfo}<br>Копирайт гыгыгы <Year /><br>
-        Powered by <a href="https://astro.build/" target="_blank" class="">
-            <i class="devicon-astro-plain"></i> Astro <small>{astroVersion}</small></a> + 
-            <a href="https://tailwindcss.com" target="_blank" class="">
-                <i class="devicon-tailwindcss-plain"></i> Tailwind <small>{tailwindVersion}</small></a>
-      </p>
+<div class="m-4 opacity-75 text-sm">
+    <p> v{projectVersion}, commit {getCommitInfo}</p>
+    <p>Копирайт гыгыгы <Year /></p>
+    <p>
+        Made with
+        <a href="https://astro.build/" target="_blank" class="">
+            <i class="devicon-astro-plain"></i> Astro <small>{astroVersion}</small>
+        </a> + 
+        <a href="https://tailwindcss.com" target="_blank" class="">
+            <i class="devicon-tailwindcss-plain"></i> Tailwind <small>{tailwindVersion}</small>
+        </a>
+    </p>
+        
+</div>

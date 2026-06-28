@@ -5,26 +5,25 @@ import Layout from "../layouts/Layout.astro"
 ---
 
 <Layout title="Главная">
-<div class="pt-4 px-4">
-  <div class="flex container p-4 mb-4 bg-zinc-300 text-zinc-800 -rotate-1 hover:rotate-0 transition-transform shadow-md flex-col md:flex-row">
+<div class="border-2 rounded-4xl -rotate-1 hover:rotate-0 transition-transform container">
+<div class="py-4 px-4">
+  <div class="flex container p-4 mb-4 bg-zinc-300 text-zinc-800 rounded-2xl shadow-md flex-col md:flex-row">
     <h1 id="hello" class="font-bold text-2xl">Вставить приветствие здесь.</h1>
   </div>
 
 <article class="markdown">
-<p>Меня зовут <b>Леонид</b>, <Age /> years old. Инжир-погромист, чинит примус, сочиняет гиперболоиды, питается кофе и печеньками. Характер скрытный. Не женат.</p>
-<p>Где-то меня можно найти:</p>
-<p>
-<a href="https://github.com/Lennichijou" target="_blank" class="">
+<p><b>Леонид</b>, <Age /> y/o. Инжир-погромист, чинит примус, сочиняет гиперболоиды, питается кофе и печеньками. Характер скрытный. Не женат.</p>
+<p>Где-то меня можно найти, например: на <a href="https://github.com/Lennichijou" target="_blank" class="">
   <i class="si-fit si-github"></i> GitHub
-</a>
-</p>
-<p>
-<a href="https://t.me/Lenhardt" target="_blank" class="">
+</a> или в <a href="https://t.me/Lenhardt" target="_blank" class="">
   <i class="si-fit si-telegram"></i> Telegram
-</a>
-</p>
+</a>.</p>
 </article>
 
 </div>
+</div>
+<div class="px-4 pt-4 pb-1">
+<p><small class="opacity-75">Красивые значочьки:</small></p>
 <Buttons />
+</div>
 </Layout>
