@@ -4,14 +4,9 @@ import Year from "../components/Year.astro";
 const projectVersion: string = pkg.version || 'unknown';
 const astroVersion: string = pkg.dependencies?.["astro"] || 'unknown';
 const tailwindVersion: string = pkg.devDependencies?.["@tailwindcss/vite"] || 'unknown';
-const getCommitInfo = async () => {
-    const childProcess = await import('node:child_process');
-    const hash = childProcess.execSync('git rev-parse --short HEAD').toString().trim();
-    return hash;
-};
 ---
 <div class="m-4 opacity-75 text-sm">
-    <p> v{projectVersion}, commit {getCommitInfo}</p>
+    <p> v{projectVersion}</p>
     <p>Копирайт гыгыгы <Year /></p>
     <p>
         Made with
