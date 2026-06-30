@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  caddy:
+    build: .
+    container_name: my-astro-site
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - caddy_data:/data
+      - caddy_config:/config
+    restart: unless-stopped
+
+volumes:
+  caddy_data:
+  caddy_config:

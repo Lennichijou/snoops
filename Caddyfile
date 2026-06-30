@@ -11,5 +11,9 @@ lenny.wtf {
     }
 
     header /_astro/* Cache-Control "public, max-age=31536000, immutable"
-    header *.js *.css *.png *.jpg *.jpeg *.gif *.ico *.svg *.woff *.woff2 Cache-Control "public, max-age=2592000"
+
+    @static {
+        path_regexp \.(js|css|png|jpg|jpeg|gif|ico|svg|woff|woff2)$
+    }
+    header @static Cache-Control "public, max-age=2592000"
 }
