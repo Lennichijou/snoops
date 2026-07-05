@@ -6,16 +6,17 @@ const astroVersion: string = pkg.dependencies?.["astro"] || 'unknown';
 const tailwindVersion: string = pkg.devDependencies?.["@tailwindcss/vite"] || 'unknown';
 ---
 <div class="m-4 opacity-75 text-sm">
-    <p> v{projectVersion}</p>
     <p>Копирайт гыгыгы <Year /></p>
+    <p>Версия сайта v{projectVersion}, built {import.meta.env.BUILD_TIME}</p>
     <p>
         Made with
         <a href="https://astro.build/" target="_blank" class="">
-            <i class="devicon-astro-plain"></i> Astro <small>{astroVersion}</small>
+            <i class="devicon-astro-plain"></i> Astro <small>{astroVersion.slice(1)}</small>
         </a> + 
         <a href="https://tailwindcss.com" target="_blank" class="">
-            <i class="devicon-tailwindcss-plain"></i> Tailwind <small>{tailwindVersion}</small>
+            <i class="devicon-tailwindcss-plain"></i> Tailwind <small>{tailwindVersion.slice(1)}</small>
         </a>
     </p>
-        
+    <p>Хостится на мощностях <a href="https://beget.com/ru" target="_blank">Beget</a>.</p>
+    <p>Inspired by <a href="https://otomir23.me/" target="_blank">otomir23</a>.</p>
 </div>

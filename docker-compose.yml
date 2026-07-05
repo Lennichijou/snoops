@@ -1,16 +1,27 @@
-version: '3.8'
-
 services:
   caddy:
-    build: .
-    container_name: my-astro-site
+    image: caddy:alpine
+    container_name: caddy-proxy
     ports:
       - "80:80"
       - "443:443"
     volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
       - caddy_data:/data
       - caddy_config:/config
     restart: unless-stopped
+    depends_on:
+      - astro
+
+  astro:
+    build: .
+    container_name: astro
+    restart: unless-stopped
+    environment:
+      - PORT=4321
+      - HOST=0.0.0.0
+    expose:
+      - "4321"
 
 volumes:
   caddy_data:

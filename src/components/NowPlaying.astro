@@ -1,0 +1,23 @@
+---
+const KOITO_URL = "https://koito.lenny.wtf";
+const API_URL = `${KOITO_URL}/apis/web/v1/now-playing`;
+
+let trackData = null;
+let result = "Ничего";
+
+try {
+  const response = await fetch(API_URL);
+  if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+  const json = await response.json();
+  trackData = json;
+  result = `${trackData.track.artists.map((a: { name: any; }) => a.name).join(', ')} - ${trackData.track.title}`;
+} catch (err) {
+  console.error("Cannot connect to a Koito instance.");
+}
+
+---
+<div class="border-2 p-4 my-2 rounded-4xl rotate-1 hover:rotate-0 focus:rotate-0 bg-zinc-800 transition-transform container">
+    <p><b>Сейчас слушаю:</b> {result}
+    </p>
+    <small>Powered by <a href=`${KOITO_URL}` target="_blank">Koito</a>.</small>
+</div>

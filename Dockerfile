@@ -1,10 +1,22 @@
 FROM node:22.23-alpine AS builder
 WORKDIR /app
+
 COPY package.json package-lock.json ./
 RUN npm ci
+
 COPY . .
+
 RUN npm run build
-FROM caddy:alpine AS runner
-COPY --from=builder /app/dist /usr/share/caddy
-COPY Caddyfile /etc/caddy/Caddyfile
-EXPOSE 80
+
+FROM node:22.23-alpine AS runner
+WORKDIR /app
+
+COPY --from=builder /app/dist ./dist
+
+COPY --from=builder /app/package.json /app/package-lock.json ./
+RUN npm ci --omit=dev
+
+ENV PORT=4321
+ENV HOST=0.0.0.0
+
+CMD ["node", "dist/server/entry.mjs"]
