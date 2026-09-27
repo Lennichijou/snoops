@@ -1,29 +1,30 @@
 ---
-import Age from "../components/Age.astro"
 import Buttons from "../components/Buttons.astro"
-import NowPlaying from "../components/NowPlaying.astro"
+import NowPlaying from "../components/NowPlaying"
 import Layout from "../layouts/Layout.astro"
+import Footer from "../components/Footer.astro";
+
 ---
 
 <Layout title="Главная">
-<div class="border-2 rounded-4xl -rotate-1 hover:rotate-0 transition-transform container bg-zinc-800">
-<div class="py-4 px-4">
-  <div class="flex container p-4 mb-4 bg-zinc-300 text-zinc-800 rounded-2xl shadow-md flex-col md:flex-row">
-    <h1 id="hello" class="font-bold text-2xl">Вставить приветствие здесь.</h1>
-  </div>
+<div class="flex min-h-[calc(100vh-5.5rem)] flex-col justify-center">
+<div class="container bg-zinc-800 flex flex-col w-full mx-auto">
 
-<article class="markdown">
-<p><b>Леонид</b>, <Age /> y/o. Инжир-погромист, чинит примус, сочиняет гиперболоиды, питается кофе и печеньками. Характер скрытный. Не женат.</p>
+
+<div class="">
+<h1 class="text-2xl font-bold">Моя звать Леонид.</h1>
+<p>Я есть инжир-погромист, примус починяю да в комнате потайной гиперболоиды сочиняю. Нраица. Характер скрытный. Не женат.</p>
 <p>Где-то меня можно найти, например: на <a href="https://github.com/Lennichijou" target="_blank" class=""><i class="si-fit si-github"></i> GitHub</a> или в <a href="https://t.me/Lenhardt" target="_blank" class="">
   <i class="si-fit si-telegram"></i> Telegram</a>.</p>
 <p>По вопросам обращаться в спортлото - <b>hello [at] lenny [dot] wtf</b>.</p>
-</article>
+</div>
 
+<div class="mt-4"><NowPlaying client:load /></div>
 </div>
-</div>
-<NowPlaying />
-<div class="px-4 pt-4 pb-1">
+<div class="mt-4">
 <p><small class="opacity-75">Красивые значочьки:</small></p>
 <Buttons />
+<Footer />
+</div>
 </div>
 </Layout>

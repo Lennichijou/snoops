@@ -1,7 +1,7 @@
 {
   "name": "snoops",
   "type": "module",
-  "version": "0.1.5",
+  "version": "0.2.0",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
@@ -9,12 +9,17 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/node": "^10.1.1",
-    "@astrojs/sitemap": "^3.7.3",
+    "@astrojs/node": "^11.1.6",
+    "@astrojs/react": "^7.0.0",
+    "@astrojs/sitemap": "^3.7.4",
     "@fontsource-variable/geist": "^5.2.8",
     "@fontsource-variable/geist-mono": "^5.2.7",
-    "astro": "^6.1.5",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "astro": "^7.3.5",
     "devicon": "^2.17.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
     "simple-icons-font": "^16.22.0"
   },
   "devDependencies": {
