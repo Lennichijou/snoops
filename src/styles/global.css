@@ -24,13 +24,16 @@
   .animate-fade-up {
     animation: var(--animate-fade-up);
   }
+  .koito {
+  @apply bg-zinc-800 text-zinc-100 hover:bg-zinc-100 focus:bg-zinc-100 hover:text-zinc-800 focus:text-zinc-800 transition;
+}
 }
 
 html {
   min-width: 320px;
   scroll-behavior: smooth;
   font-family: 'Geist Variable';
-  @apply text-zinc-100 bg-zinc-800;
+  @apply text-zinc-100 bg-zinc-800 font-normal;
 }
 
 body {
@@ -38,8 +41,10 @@ body {
    right-0 top-0 p-5 mx-5 my-5 space-x-2 space-y-2;
 }
 
+@layer base {
 a {
-  @apply transition underline underline-offset-4 hover:opacity-100 text-blue-200 hover:text-red-200 focus:text-red-200 ;
+  @apply transition font-medium underline underline-offset-3 hover:opacity-100  focus:bg-zinc-100 focus:text-zinc-800 hover:bg-zinc-100 hover:text-zinc-800;
+}
 }
 
 .markdown {
