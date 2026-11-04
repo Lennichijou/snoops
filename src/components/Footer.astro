@@ -8,7 +8,7 @@ import CurrentYear from "../components/Year"
 ---
 <div class="opacity-75 text-sm">
     <p>Копирайт гыгыгы {CurrentYear}.
-    Версия сайта v{projectVersion}, built {import.meta.env.BUILD_TIME}</p>
+    Версия сайта v{projectVersion} ({import.meta.env.BUILD_TIME})</p>
     <p>
         Made with <a href="https://astro.build/" target="_blank" class="">
             <i class="devicon-astro-plain"></i> Astro <small>{astroVersion.slice(1)}</small>
@@ -16,6 +16,5 @@ import CurrentYear from "../components/Year"
             <i class="devicon-tailwindcss-plain"></i> Tailwind <small>{tailwindVersion.slice(1)}</small>
         </a>
     </p>
-    <p>Хостится на мощностях <a href="https://beget.com/ru" target="_blank">Beget</a>.</p>
     <p>Inspired by <a href="https://otomir23.me/" target="_blank">otomir23</a>.</p>
 </div>

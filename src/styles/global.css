@@ -43,7 +43,7 @@ body {
 
 @layer base {
 a {
-  @apply transition font-medium underline underline-offset-3 hover:opacity-100  focus:bg-zinc-100 focus:text-zinc-800 hover:bg-zinc-100 hover:text-zinc-800;
+  @apply transition font-medium underline underline-offset-3 hover:no-underline focus:no-underline hover:opacity-100  focus:bg-zinc-100 focus:text-zinc-800 hover:bg-zinc-100 hover:text-zinc-800;
 }
 }
 
