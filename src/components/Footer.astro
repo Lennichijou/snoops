@@ -4,17 +4,17 @@ const projectVersion: string = pkg.version || 'unknown';
 const astroVersion: string = pkg.dependencies?.["astro"] || 'unknown';
 const tailwindVersion: string = pkg.devDependencies?.["@tailwindcss/vite"] || 'unknown';
 
-import CurrentYear from "../components/Year"
+import CurrentYear from './Year'
 ---
 <div class="opacity-75 text-sm">
-    <p>Копирайт гыгыгы {CurrentYear}.
-    Версия сайта v{projectVersion} ({import.meta.env.BUILD_TIME})</p>
+    <p>Электропочта: <code>hello [собачка] lenny [точка] wtf</code>.</p>
+    <p>Копирайт гыгыгы <CurrentYear />.</p>
+    <p>Версия сайта v{projectVersion} ({import.meta.env.BUILD_TIME}).</p>
     <p>
         Made with <a href="https://astro.build/" target="_blank" class="">
             <i class="devicon-astro-plain"></i> Astro <small>{astroVersion.slice(1)}</small>
         </a> + <a href="https://tailwindcss.com" target="_blank" class="">
             <i class="devicon-tailwindcss-plain"></i> Tailwind <small>{tailwindVersion.slice(1)}</small>
-        </a>
+        </a>.
     </p>
-    <p>Inspired by <a href="https://otomir23.me/" target="_blank">otomir23</a>.</p>
 </div>

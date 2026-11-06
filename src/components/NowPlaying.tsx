@@ -68,7 +68,7 @@ const NowPlaying = () => {
 
   return (
       <a href={KOITO_URL} target="_blank" rel="noreferrer" className="no-underline">
-    <div className="border-2 rounded-4xl p-4 transition-transform koito">
+    <div className="rounded-4xl p-4 transition-transform koito">
       <p><b>{label}</b></p><p>{text}</p>
       <p><small>Powered by Koito.</small></p>
     </div>
