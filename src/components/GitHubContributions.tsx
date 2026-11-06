@@ -1,6 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
 
-const GITHUB_URL = 'https://github.com/Lennichijou';
 const API_URL = '/api/github';
 const API_SOURCE_URL = 'https://github.com/grubersjoe/github-contributions-api';
 
@@ -166,9 +165,8 @@ const GitHubContributions = () => {
 
       <p className="mt-2">
         <small className="opacity-60">
-          Данные:{' '}
-          <a href={API_SOURCE_URL} target="_blank" rel="noreferrer">
-            github-contributions-api
+          Powered by <a href={API_SOURCE_URL} target="_blank" rel="noreferrer">
+            <i className="si-fit si-github"></i> grubersjoe/github-contributions-api
           </a>
           .{' '}
         </small>

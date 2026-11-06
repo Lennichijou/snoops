@@ -58,10 +58,6 @@ body {
   font-size: normal;
 }
 
-pre {
-  font-family: 'Geist Mono Variable';
-}
-
-code {
+pre, code {
   font-family: 'Geist Mono Variable';
 }
