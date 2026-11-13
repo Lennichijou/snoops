@@ -9,6 +9,10 @@
   --animate-fade-up: fade-up 0.4s ease-out;
 }
 
+.koito-logo, .github-logo {
+  display: inline-block;
+}
+
 @keyframes fade-up {
   0% {
     opacity: 0;
