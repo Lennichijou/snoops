@@ -7,6 +7,7 @@
 
 @theme {
   --animate-fade-up: fade-up 0.4s ease-out;
+  --animate-widget-in: widget-in 0.4s ease-out both;
 }
 
 .koito-logo, .github-logo, .weather-icon {
@@ -17,6 +18,17 @@
   0% {
     opacity: 0;
     transform: translateY(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes widget-in {
+  0% {
+    opacity: 0;
+    transform: translateY(0.25rem);
   }
   100% {
     opacity: 1;

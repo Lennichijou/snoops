@@ -1,9 +1,9 @@
 ---
 import Buttons from "../components/Buttons.astro"
-import GitHubContributions from "../components/GitHubContributions"
-import MoscowClock from "../components/Clock"
-import MoscowWeather from "../components/Weather"
-import NowPlaying from "../components/NowPlaying"
+import GitHubContributions from "../components/islands/GitHubContributionsIsland"
+import MoscowClock from "../components/islands/MoscowClockIsland"
+import MoscowWeather from "../components/islands/MoscowWeatherIsland"
+import NowPlaying from "../components/islands/NowPlayingIsland"
 import Layout from "../layouts/Layout.astro"
 import Footer from "../components/Footer.astro";
 
@@ -11,13 +11,13 @@ import Footer from "../components/Footer.astro";
 
 <Layout title="Главная">
 <div class="flex min-h-[calc(100dvh-5.5rem)] flex-col justify-center gap-4">
-<div class="container flex flex-col w-full mx-auto gap-4 min-w-0">
+<div class="container flex flex-col w-full max-w-3xl mx-auto gap-4 min-w-0">
 
-<div class="min-w-0">
-  <div class="flex flex-col sm:flex-row gap-4">
+<div class="min-w-0 m-1">
+  <div class="flex flex-col sm:flex-row gap-4 my-auto">
     <div class="min-w-0">
   <p><img src="me.jpg" width="88" height="88" alt="That's me" class="rounded-2xl rotate-2 focus:rotate-0 hover:rotate-0 transition border-2"></p>
-</div><div>
+</div><div class="">
   <h1 class="text-[clamp(1.35rem,1rem+1.5vw,1.75rem)] font-bold">Моя звать Леонид.</h1>
 <p>Студентота, инжир-погромист, шитпостер.</p>
 <p>Где-то меня можно найти, например: на <a href="https://github.com/Lennichijou" target="_blank" class=""><i class="si-fit si-github"></i> GitHub</a> или в <a href="https://t.me/Lenhardt" target="_blank" class="">
@@ -25,25 +25,25 @@ import Footer from "../components/Footer.astro";
 </div>
 </div>
 </div>
-<div class="min-w-0">
-<GitHubContributions client:load />
+<div class="min-w-0 m-1">
+<GitHubContributions client:visible={{ rootMargin: '300px' }} />
 </div>
 <div class="min-w-0 m-1">
-<NowPlaying client:load />
+<NowPlaying client:visible={{ rootMargin: '300px' }} />
 </div>
-<div class="flex flex-col sm:flex-row gap-4">
-<div class="min-w-0 flex-1 m-1 my-auto">
-<MoscowClock client:load />
+<div class="flex flex-col sm:flex-row gap-4 my-auto">
+<div class="min-w-0 flex-1 m-1">
+<MoscowClock client:visible={{ rootMargin: '300px' }} />
 </div>
 <div class="min-w-0 flex-1 m-1">
-<MoscowWeather client:load />
+<MoscowWeather client:visible={{ rootMargin: '300px' }} />
 </div>
 </div>
 </div>
 <div class="min-w-0 m-1">
 <Buttons />
 </div>
-<div class="min-w-0 ">
+<div class="min-w-0 m-1">
 <Footer />
 </div>
 </div>

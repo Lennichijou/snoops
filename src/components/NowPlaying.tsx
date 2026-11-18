@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
+import { NowPlayingSkeleton } from './Skeletons';
 
 const KOITO_URL = 'https://koito.lenny.wtf';
 const API_URL = '/api/koito';
@@ -54,7 +55,7 @@ const NowPlaying = () => {
   const track = 'track' in state ? state.track : null;
 
   let label = 'Сейчас слушаю:';
-  let text = 'Подождите...';
+  let text = '';
 
   if (kind === 'error') {
     label = 'Ошибка соединения:';
@@ -66,9 +67,11 @@ const NowPlaying = () => {
     text = formatTrack(track);
   }
 
+  if (kind === 'loading') return <NowPlayingSkeleton />;
+
   return (
       <a href={KOITO_URL} target="_blank" rel="noreferrer" className="no-underline">
-    <div className="rounded-4xl p-4 transition-transform koito">
+    <div className="rounded-4xl p-4 transition-transform koito motion-safe:animate-widget-in">
       <p>
         <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 512 512" className='koito-logo'>
 	<path d="M0 0h512v512H0z" fill="none" />

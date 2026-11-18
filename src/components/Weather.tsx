@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
+import { MoscowWeatherSkeleton } from './Skeletons';
 
 const WTTR_URL = 'https://wttr.in/Moscow';
 const API_URL = '/api/weather';
@@ -85,8 +86,11 @@ const MoscowWeather = () => {
         .join(', ')
     : '';
 
+  // Same markup as the Suspense fallback of this island: the box does not change height.
+  if (kind === 'loading') return <MoscowWeatherSkeleton />;
+
   return (
-      <div className="rounded-4xl p-3 sm:p-4 border-2 min-w-0 transition-transform">
+      <div className="rounded-4xl p-4 border-2 min-w-0 transition-transform motion-safe:animate-widget-in">
         <p>
           <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24" className='weather-icon'>
 	<path d="M0 0h24v24H0z" fill="none" />
@@ -94,7 +98,6 @@ const MoscowWeather = () => {
 </svg> <b>Погода в Москве:</b>
         </p>
 
-        {kind === 'loading' && <p className="">подождите...</p>}
         {kind === 'error' && <p className="">не удалось получить данные с wttr.in</p>}
         {weather && (
           <>
@@ -104,7 +107,7 @@ const MoscowWeather = () => {
               </span>
               <span className="opacity-60">{weather.description.toLowerCase()}</span>
             </p>
-            {details && <p className="opacity-60">{details}</p>}
+            <p className="opacity-60 min-h-[3em]">{details}</p>
           </>
         )}
 

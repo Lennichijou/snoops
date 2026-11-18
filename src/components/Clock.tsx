@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { MoscowClockSkeleton } from './Skeletons';
 
 const TIME_ZONE = 'Europe/Moscow';
 
@@ -32,8 +33,10 @@ const MoscowClock = () => {
     return () => clearInterval(interval);
   }, []);
 
+  if (now === '') return <MoscowClockSkeleton />;
+
   return (
-    <div className="rounded-4xl p-3 sm:p-4 border-2 min-w-0">
+    <div className="rounded-4xl p-3 sm:p-4 border-2 min-w-0 motion-safe:animate-widget-in">
       <p>
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -56,7 +59,7 @@ const MoscowClock = () => {
       </p>
       <p className="mt-2 flex flex-wrap items-baseline gap-x-3 gap-y-1">
         <span className="text-4xl font-bold tabular-nums">
-          {now || 'Подождите...'}
+          {now}
         </span>
       </p>
         <p className="opacity-60">{date.replace(/^./, (char) => char.toLowerCase())}</p>

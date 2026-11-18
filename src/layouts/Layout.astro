@@ -11,8 +11,8 @@ const { title } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body class="animate-fade-up">
-    <main class="w-full max-w-3xl mx-auto">
+  <body class="animate-fade-up motion-reduce:animate-none">
+    <main class="w-full max-w-3xl justify-self-center">
       <slot />
     </main>
   </body>
