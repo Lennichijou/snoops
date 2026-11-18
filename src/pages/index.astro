@@ -1,6 +1,8 @@
 ---
 import Buttons from "../components/Buttons.astro"
 import GitHubContributions from "../components/GitHubContributions"
+import MoscowClock from "../components/MoscowClock"
+import MoscowWeather from "../components/MoscowWeather"
 import NowPlaying from "../components/NowPlaying"
 import Layout from "../layouts/Layout.astro"
 import Footer from "../components/Footer.astro";
@@ -12,28 +14,36 @@ import Footer from "../components/Footer.astro";
 <div class="container flex flex-col w-full mx-auto gap-4 min-w-0">
 
 <div class="min-w-0">
-  <div class="">
-    <div class="min-w-0 py-4 sm:py-3">
+  <div class="flex flex-col sm:flex-row gap-4">
+    <div class="min-w-0">
   <p><img src="me.jpg" width="88" height="88" alt="That's me" class="rounded-2xl rotate-2 focus:rotate-0 hover:rotate-0 transition border-2"></p>
-</div>
+</div><div>
   <h1 class="text-[clamp(1.35rem,1rem+1.5vw,1.75rem)] font-bold">Моя звать Леонид.</h1>
 <p>Студентота, инжир-погромист, шитпостер.</p>
 <p>Где-то меня можно найти, например: на <a href="https://github.com/Lennichijou" target="_blank" class=""><i class="si-fit si-github"></i> GitHub</a> или в <a href="https://t.me/Lenhardt" target="_blank" class="">
   <i class="si-fit si-telegram"></i> Telegram</a>.</p>
-
 </div>
 </div>
-<div class="min-w-0">
-<GitHubContributions client:idle />
 </div>
 <div class="min-w-0">
+<GitHubContributions client:load />
+</div>
+<div class="min-w-0 m-1">
 <NowPlaying client:load />
 </div>
+<div class="flex flex-col sm:flex-row gap-4">
+<div class="min-w-0 flex-1 m-1 my-auto">
+<MoscowClock client:load />
 </div>
-<div class="min-w-0">
+<div class="min-w-0 flex-1 m-1">
+<MoscowWeather client:load />
+</div>
+</div>
+</div>
+<div class="min-w-0 m-1">
 <Buttons />
 </div>
-<div class="min-w-0">
+<div class="min-w-0 ">
 <Footer />
 </div>
 </div>

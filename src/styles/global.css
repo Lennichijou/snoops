@@ -9,7 +9,7 @@
   --animate-fade-up: fade-up 0.4s ease-out;
 }
 
-.koito-logo, .github-logo {
+.koito-logo, .github-logo, .weather-icon {
   display: inline-block;
 }
 
@@ -35,6 +35,7 @@
 
 html {
   min-width: 320px;
+  scrollbar-gutter: stable;
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
   font-family: 'Onest Variable';

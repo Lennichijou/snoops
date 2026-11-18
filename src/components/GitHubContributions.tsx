@@ -129,15 +129,6 @@ const GitHubContributions = () => {
 
       {kind === 'ready' && (
         <div className="mt-2 min-w-0">
-          {/* Month names only fit once columns are wide enough; phones get the date range above. */}
-          <div className="hidden sm:flex gap-0.75 text-[10px] leading-none opacity-60">
-            {weeks.map((week) => (
-              <div key={`label-${week.days[0]?.date ?? week.label}`} className="min-w-0 flex-1 mb-1">
-                <span className="block w-0 overflow-visible whitespace-nowrap">{week.label}</span>
-              </div>
-            ))}
-          </div>
-
           <div className="flex gap-px mt-1 sm:mt-0 sm:gap-0.75">
             {weeks.map((week, weekIndex) => (
               <div key={weekIndex} className="flex min-w-0 flex-1 flex-col gap-1 sm:gap-0.75">
@@ -145,7 +136,7 @@ const GitHubContributions = () => {
                   day ? (
                     <div
                       key={day.date}
-                      className={`aspect-square rounded-4xl ${LEVEL_CLASSES[day.level] ?? LEVEL_CLASSES[0]}`}
+                      className={`aspect-square rounded-xs ${LEVEL_CLASSES[day.level] ?? LEVEL_CLASSES[0]}`}
                       title={`${formatDate(day.date)} — ${formatCount(day.count)}`}
                     />
                   ) : (
@@ -159,7 +150,7 @@ const GitHubContributions = () => {
           <div className="flex items-center gap-1 mt-2 text-[10px]">
             <span className="opacity-60">меньше</span>
             {LEVEL_CLASSES.map((levelClass) => (
-              <span key={levelClass} className={`inline-block w-2.5 h-2.5 rounded-4xl ${levelClass}`} />
+              <span key={levelClass} className={`inline-block w-2.5 h-2.5  rounded-xs ${levelClass}`} />
             ))}
             <span className="opacity-60">больше</span>
           </div>
