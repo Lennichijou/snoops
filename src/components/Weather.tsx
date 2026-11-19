@@ -1,4 +1,5 @@
-import { useCallback, useEffect, useState } from 'react';
+import { Fragment, useCallback, useEffect, useState } from 'react';
+import type { ReactNode } from 'react';
 import { MoscowWeatherSkeleton } from './Skeletons';
 
 const WTTR_URL = 'https://wttr.in/Moscow';
@@ -27,17 +28,25 @@ const WIND_DIRS: Record<string, string> = {
 };
 
 // WWO weather codes wttr.in reports; anything unknown falls back to the cloud.
+// Boxicons 2.1.4 has no filled cloud-drizzle/cloud-snow, those use the regular weight.
 const ICONS: Record<number, string> = {
-  113: '☀️', 116: '🌤️', 119: '☁️', 122: '☁️',
-  143: '🌫️', 248: '🌫️', 260: '🌫️',
-  176: '🌦️', 263: '🌦️', 266: '🌧️', 281: '🌧️', 284: '🌧️',
-  293: '🌦️', 296: '🌧️', 299: '🌧️', 302: '🌧️', 308: '🌧️',
-  311: '🌧️', 314: '🌧️', 317: '🌨️', 320: '🌨️',
-  323: '🌨️', 326: '🌨️', 329: '🌨️', 332: '🌨️', 335: '❄️', 338: '❄️',
-  350: '🌨️', 353: '🌦️', 356: '🌧️', 359: '🌧️', 362: '🌧️', 365: '🌧️',
-  368: '🌨️', 371: '❄️', 374: '🌨️', 377: '🌨️',
-  200: '⛈️', 386: '⛈️', 389: '⛈️', 392: '⛈️', 395: '⛈️',
+  113: 'bxs-sun',
+  116: 'bxs-cloud', 119: 'bxs-cloud', 122: 'bxs-cloud',
+  143: 'bxs-cloud', 248: 'bxs-cloud', 260: 'bxs-cloud',
+  176: 'bx-cloud-drizzle', 263: 'bx-cloud-drizzle', 266: 'bx-cloud-drizzle',
+  281: 'bx-cloud-drizzle', 284: 'bx-cloud-drizzle', 311: 'bx-cloud-drizzle',
+  293: 'bxs-cloud-rain', 296: 'bxs-cloud-rain', 299: 'bxs-cloud-rain', 302: 'bxs-cloud-rain',
+  308: 'bxs-cloud-rain', 314: 'bxs-cloud-rain', 317: 'bxs-cloud-rain', 320: 'bxs-cloud-rain',
+  353: 'bxs-cloud-rain', 356: 'bxs-cloud-rain', 359: 'bxs-cloud-rain', 362: 'bxs-cloud-rain',
+  365: 'bxs-cloud-rain', 368: 'bxs-cloud-rain',
+  323: 'bx-cloud-snow', 326: 'bx-cloud-snow', 329: 'bx-cloud-snow', 332: 'bx-cloud-snow',
+  335: 'bx-cloud-snow', 338: 'bx-cloud-snow', 350: 'bx-cloud-snow', 371: 'bx-cloud-snow',
+  374: 'bx-cloud-snow', 377: 'bx-cloud-snow',
+  200: 'bxs-cloud-lightning', 386: 'bxs-cloud-lightning', 389: 'bxs-cloud-lightning',
+  392: 'bxs-cloud-lightning', 395: 'bxs-cloud-lightning',
 };
+
+const iconClass = (code: number | null) => `bx ${ICONS[code ?? -1] ?? 'bxs-cloud'} align-middle`;
 
 const formatTemp = (temp: number | null) => (temp === null ? '?' : `${temp}°`);
 
@@ -72,45 +81,54 @@ const MoscowWeather = () => {
   const { kind } = state;
   const weather = kind === 'ready' ? state.weather : null;
 
-  const details = weather
+  const details: ReactNode[] = weather
     ? [
-        weather.windSpeed !== null
-          ? `ветер ${weather.windDir ? `${WIND_DIRS[weather.windDir] ?? weather.windDir} ` : ''}${weather.windSpeed} км/ч`
-          : null,
-        weather.humidity !== null ? `влажность ${weather.humidity}%` : null,
-        weather.min !== null && weather.max !== null
-          ? `${formatTemp(weather.min)}…${formatTemp(weather.max)} сегодня`
-          : null,
-      ]
-        .filter(Boolean)
-        .join(', ')
-    : '';
+        weather.windSpeed !== null ? (
+          <>
+            <i className="bx bx-wind" role="img" aria-label="ветер" />{' '}
+            {weather.windDir ? `${WIND_DIRS[weather.windDir] ?? weather.windDir}` : ''}{', '}
+            {weather.windSpeed} км/ч
+          </>
+        ) : null,
+        weather.humidity !== null ? (
+          <>
+            <i className="bx bxs-droplet" role="img" aria-label="влажность" /> {weather.humidity}%
+          </>
+        ) : null,
+        weather.min !== null && weather.max !== null ? (
+          <>{`${formatTemp(weather.min)}…${formatTemp(weather.max)} сегодня`}</>
+        ) : null,
+      ].filter(Boolean)
+    : [];
 
-  // Same markup as the Suspense fallback of this island: the box does not change height.
   if (kind === 'loading') return <MoscowWeatherSkeleton />;
 
   return (
-      <div className="rounded-4xl p-4 border-2 min-w-0 transition-transform motion-safe:animate-widget-in">
+      <div className="rounded-4xl p-4 border-2 min-w-0 transition-transform">
         <p>
-          <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24" className='weather-icon'>
+          <svg xmlns="http://www.w3.org/2000/svg" width="1.25em" height="1.25em" viewBox="0 0 24 24" className="weather-icon">
 	<path d="M0 0h24v24H0z" fill="none" />
-	<path fill="currentColor" d="M13.002 7.009c3.168 0 4.966 2.097 5.227 4.63h.08a3.687 3.687 0 0 1 3.692 3.683a3.687 3.687 0 0 1-3.692 3.682H7.694a3.687 3.687 0 0 1-3.692-3.682a3.687 3.687 0 0 1 3.692-3.683h.08c.263-2.55 2.06-4.63 5.228-4.63M10 4c1.617 0 3.05.815 3.9 2.062a8 8 0 0 0-.898-.053c-2.994 0-5.171 1.677-5.937 4.213l-.068.24l-.058.238l-.206.039a4.68 4.68 0 0 0-3.449 3.045a3.282 3.282 0 0 1 1.812-5.881l.257-.006A4.72 4.72 0 0 1 10 4" />
-</svg> <b>Погода в Москве:</b>
+	<path fill="currentColor" d="M12 2C6.49 2 2 6.49 2 12c0 .55.45 1 1 1h8v6c0 1.65 1.35 3 3 3s3-1.35 3-3v-1h-2v1c0 .55-.45 1-1 1s-1-.45-1-1v-6h8c.55 0 1-.45 1-1c0-5.51-4.49-10-10-10" />
+</svg> <b>Москва: </b>
+          {kind === 'error' && <span className="">не удалось получить данные с wttr.in</span>}
+          {weather && (
+            <span className="">
+              <i className={iconClass(weather?.code ?? null)} aria-hidden="true" /> {formatTemp(weather.temp)}, {weather.description.toLowerCase()}
+            </span>
+          )}
         </p>
-
-        {kind === 'error' && <p className="">не удалось получить данные с wttr.in</p>}
         {weather && (
-          <>
-            <p className="mt-2 flex flex-wrap items-baseline gap-x-3 gap-y-1">
-              <span className="text-4xl font-bold tabular-nums">
-                {ICONS[weather?.code ?? -1] ?? '☁️'} {formatTemp(weather.temp)}
-              </span>
-              <span className="opacity-60">{weather.description.toLowerCase()}</span>
-            </p>
-            <p className="opacity-60 min-h-[3em]">{details}</p>
-          </>
+          <p className="">
+            <small>
+              {details.map((detail, index) => (
+                <Fragment key={index}>
+                  {index > 0 && ', '}
+                  {detail}
+                </Fragment>
+              ))}
+            </small>
+          </p>
         )}
-
         <p className="">
           <small className="opacity-60">
             Powered by <a href={WTTR_URL} target="_blank" rel="noreferrer">wttr.in</a>.{' '}

@@ -11,14 +11,15 @@ import Footer from "../components/Footer.astro";
 
 <Layout title="Главная">
 <div class="flex min-h-[calc(100dvh-5.5rem)] flex-col justify-center gap-4">
-<div class="container flex flex-col w-full max-w-3xl mx-auto gap-4 min-w-0">
+<div class="container flex flex-col w-full max-w-3xl mx-auto gap-1 min-w-0">
 
 <div class="min-w-0 m-1">
-  <div class="flex flex-col sm:flex-row gap-4 my-auto">
-    <div class="min-w-0">
-  <p><img src="me.jpg" width="88" height="88" alt="That's me" class="rounded-2xl rotate-2 focus:rotate-0 hover:rotate-0 transition border-2"></p>
-</div><div class="">
-  <h1 class="text-[clamp(1.35rem,1rem+1.5vw,1.75rem)] font-bold">Моя звать Леонид.</h1>
+  <div class="flex flex-col sm:flex-row gap-2 my-auto">
+    <div class="min-w-0 m-1">
+  <p><img src="me.jpg" width="88" height="88" alt="That's me" class="rounded-2xl rotate-1 focus:rotate-0 hover:rotate-0 transition border-2"></p>
+</div>
+<div class="min-w-0 m-1">
+  <h1 class="text-3xl font-bold">Моя звать Леонид.</h1>
 <p>Студентота, инжир-погромист, шитпостер.</p>
 <p>Где-то меня можно найти, например: на <a href="https://github.com/Lennichijou" target="_blank" class=""><i class="si-fit si-github"></i> GitHub</a> или в <a href="https://t.me/Lenhardt" target="_blank" class="">
   <i class="si-fit si-telegram"></i> Telegram</a>.</p>
@@ -31,7 +32,7 @@ import Footer from "../components/Footer.astro";
 <div class="min-w-0 m-1">
 <NowPlaying client:visible={{ rootMargin: '300px' }} />
 </div>
-<div class="flex flex-col sm:flex-row gap-4 my-auto">
+<div class="flex flex-col sm:flex-row gap-1 my-auto">
 <div class="min-w-0 flex-1 m-1">
 <MoscowClock client:visible={{ rootMargin: '300px' }} />
 </div>

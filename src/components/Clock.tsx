@@ -36,33 +36,15 @@ const MoscowClock = () => {
   if (now === '') return <MoscowClockSkeleton />;
 
   return (
-    <div className="rounded-4xl p-3 sm:p-4 border-2 min-w-0 motion-safe:animate-widget-in">
+    <div className="rounded-4xl p-4 border-2 min-w-0">
       <p>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="1.5em"
-          height="1.5em"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          aria-hidden="true"
-          className='weather-icon'
-        >
-          <circle cx="12" cy="12" r="9" />
-          <path d="M12 7v5l3 2" />
-        </svg>
-        {' '}
-        <b>Время</b>
+        <svg xmlns="http://www.w3.org/2000/svg" width="1.25em" height="1.25em" viewBox="0 0 24 24" className='weather-icon'>
+	<path d="M0 0h24v24H0z" fill="none" />
+	<path fill="currentColor" d="M12 2C6.58 2 2 6.58 2 12s4.58 10 10 10s10-4.58 10-10S17.42 2 12 2m0 18c-4.34 0-8-3.66-8-8s3.66-8 8-8s8 3.66 8 8s-3.66 8-8 8" />
+	<path fill="currentColor" d="M13 7h-2v6h6v-2h-4z" />
+</svg> <b>{now}</b>
       </p>
-      <p className="mt-2 flex flex-wrap items-baseline gap-x-3 gap-y-1">
-        <span className="text-4xl font-bold tabular-nums">
-          {now}
-        </span>
-      </p>
-        <p className="opacity-60">{date.replace(/^./, (char) => char.toLowerCase())}</p>
+        <p className="">{date.replace(/^./, (char) => char.toLowerCase())}</p>
         <small className="opacity-60">{TIME_ZONE}</small>
     </div>
   );

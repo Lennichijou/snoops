@@ -9,7 +9,7 @@ type BarProps = {
 export const SkeletonBar = ({ className = 'w-24' }: BarProps) => (
   <span
     aria-hidden="true"
-    className={`inline-block rounded-xs bg-current opacity-20 motion-safe:animate-pulse ${className}`}
+    className={`inline-block rounded-4xl bg-current opacity-20 motion-safe:animate-pulse ${className}`}
   />
 );
 
@@ -51,17 +51,17 @@ export const GitHubSkeleton = () => (
         {Array.from({ length: WEEKS }, (_, week) => (
           <div key={week} className="flex min-w-0 flex-1 flex-col gap-1 sm:gap-0.75">
             {Array.from({ length: DAYS_PER_WEEK }, (_, day) => (
-              <SkeletonBar key={day} className="w-full aspect-square rounded-xs" />
+              <SkeletonBar key={day} className="w-full aspect-square rounded-4xl" />
             ))}
           </div>
         ))}
       </div>
       <div className="flex items-center gap-1 mt-2 text-[10px]">
         <SkeletonBar className="h-[1.5em] w-12" />
-        <SkeletonBar className="h-2.5 w-2.5 rounded-xs" />
-        <SkeletonBar className="h-2.5 w-2.5 rounded-xs" />
-        <SkeletonBar className="h-2.5 w-2.5 rounded-xs" />
-        <SkeletonBar className="h-2.5 w-2.5 rounded-xs" />
+        <SkeletonBar className="h-2.5 w-2.5 rounded-4xl" />
+        <SkeletonBar className="h-2.5 w-2.5 rounded-4xl" />
+        <SkeletonBar className="h-2.5 w-2.5 rounded-4xl" />
+        <SkeletonBar className="h-2.5 w-2.5 rounded-4xl" />
         <SkeletonBar className="h-[1.5em] w-12" />
       </div>
     </div>
@@ -82,15 +82,10 @@ export const NowPlayingSkeleton = () => (
 );
 
 export const MoscowClockSkeleton = () => (
-  <Frame className="rounded-4xl p-4 sm:p-4 border-2 min-w-0">
+  <Frame className="rounded-4xl p-4 border-2 min-w-0">
     <TitleLine className="w-24" />
-    <p className="mt-2 flex flex-wrap items-baseline gap-x-3 gap-y-1">
-      <span className="text-4xl font-bold tabular-nums">
-        <SkeletonBar className="h-[0.7em] w-36" />
-      </span>
-    </p>
-    <p className="opacity-60">
-      <SkeletonBar className="h-[1em] w-32" />
+    <p>
+      <SkeletonBar className="h-[1em] w-40" />
     </p>
     <small className="opacity-60">
       <SkeletonBar className="h-[0.9em] w-28" />
@@ -99,17 +94,9 @@ export const MoscowClockSkeleton = () => (
 );
 
 export const MoscowWeatherSkeleton = () => (
-  <Frame className="rounded-4xl p-4 border-2 min-w-0 transition-transform motion-safe:animate-widget-in">
+  <Frame className="rounded-4xl p-4 border-2 min-w-0 transition-transform">
     <TitleLine className="w-40" />
-    <p className="mt-2 flex flex-wrap items-baseline gap-x-3 gap-y-1">
-      <span className="text-4xl font-bold tabular-nums">
-        <SkeletonBar className="h-[0.7em] w-24" />
-      </span>
-      <span className="opacity-60">
-        <SkeletonBar className="h-[1em] w-20" />
-      </span>
-    </p>
-    <p className="opacity-60 min-h-[3em]">
+    <p className="">
       <SkeletonBar className="h-[1em] w-3/4" />
     </p>
     <FootLine className="" width="w-32" />
